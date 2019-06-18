@@ -54,6 +54,15 @@ module.exports = (app) => {
       });
   });
 
+  // Get some users information from DB
+  app.get('/usersInfo', (req, res) => {
+    knex('users').select('first_name', 'last_name', 'email')
+      .then((data) => {
+        res.status(200).send(data);
+      })
+      .catch(err => res.status(500).send(err));
+  });
+
   // For debug only!!!
   // *****************
   // Never expose all the users like below in a production application!!!

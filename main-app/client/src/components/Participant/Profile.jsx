@@ -7,6 +7,7 @@ import getParticipant from "api/getParticipant.api";
 import Citations from "./components/Citations";
 import Notes from './components/Notes';
 import Status from './components/Status';
+import Owner from './components/AssignedOwner';
 
 class ParticipantProfile extends React.Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class ParticipantProfile extends React.Component {
         {loading && <Loader />}
         {error && <Error error={error} />}
         {
-          !loading && user && (
+          !loading && (
             <div className="user-profile--content-container">
             <a href={"/participants"} className="user-profile--nav">
               <i className="fas fa-arrow-left"></i>
@@ -53,6 +54,7 @@ class ParticipantProfile extends React.Component {
             <Notes user={user} />
             <Citations user={user} />
             <Status user={user} />
+            <Owner user={user} /> 
           </div>
           )
         }

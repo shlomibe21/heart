@@ -33,7 +33,8 @@ CREATE TABLE participants(
   urgent BOOLEAN,
   services VARCHAR(20) [],
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  assigned_owner VARCHAR(50)
  );
 
  CREATE TABLE citations(
